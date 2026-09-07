@@ -1,0 +1,80 @@
+/* ============================================================
+   BUNAAI RUGS — DESIGN SYSTEM VARIABLES
+   Locked strictly to approved screen-fitting reference designs:
+   - Fullscreen section heights (min-height: calc(100vh - var(--header-height)))
+   - Cormorant Garamond 400 for Display
+   - Montserrat for UI / body / labels
+   ============================================================ */
+
+:root {
+  /* --- Colors --- */
+  --color-charcoal: #1A1A1A;
+  --color-charcoal-light: #2A2A2A;
+  --color-ivory: #F7F3EB;
+  --color-ivory-dark: #EDE6D8;
+  --color-gold: #B8860B;
+  --color-bronze: #C4956A;
+  --color-bronze-light: #D4A574;
+  --color-bronze-dark: #8C5828;
+  --color-white: #FFFFFF;
+  --color-black: #000000;
+  --color-text-dark: #1A1A1A;
+  --color-text-light: #F7F3EB;
+  --color-text-muted: #6B6B6B;
+  --color-border: rgba(196, 149, 106, 0.35);
+  --color-border-dark: rgba(196, 149, 106, 0.2);
+
+  /* --- Typography Font Families --- */
+  --font-display: 'Cormorant Garamond', Georgia, serif;
+  --font-serif: 'Cormorant Garamond', Georgia, serif;
+  --font-sans: 'Montserrat', sans-serif;
+
+  /* Typography Font Sizes */
+  --size-hero-h1: clamp(62px, 5.2vw, 92px);
+  --size-section-h1: clamp(56px, 4.6vw, 78px);
+  --size-body: 16px;
+  --size-nav: 13px;
+  --size-eyebrow: 12.5px;
+  --size-btn: 12.5px;
+  --size-motif: 11px;
+
+  /* Font weights - increased for high clarity and crisp text visibility */
+  --weight-light: 300;
+  --weight-regular: 500;
+  --weight-medium: 600;
+  --weight-semibold: 700;
+
+  /* Letter spacing */
+  --tracking-nav: 0.12em;
+  --tracking-eyebrow: 0.18em;
+  --tracking-btn: 0.12em;
+  --tracking-motif: 0.22em;
+
+  /* --- Container & Layout (Wide layout matching reference 1600px+) --- */
+  --container-max: 1680px;
+  --container-padding: clamp(36px, 4.5vw, 80px);
+  --header-height: 76px;
+
+  /* --- Transitions --- */
+  --transition-fast: 150ms ease;
+  --transition-base: 300ms ease;
+  --transition-slow: 600ms ease;
+
+  /* --- Z-Index --- */
+  --z-header: 1000;
+  --z-overlay: 900;
+}
+
+@media (max-width: 1024px) {
+  :root {
+    --header-height: 68px;
+    --container-padding: 32px;
+  }
+}
+
+@media (max-width: 768px) {
+  :root {
+    --header-height: 60px;
+    --container-padding: 20px;
+  }
+}

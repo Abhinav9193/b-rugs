@@ -1,0 +1,105 @@
+.process-card {
+  background: none;
+  border: none;
+  padding: 0;
+  cursor: pointer;
+  display: flex;
+  flex-direction: column;
+  text-align: left;
+  width: 100%;
+  position: relative;
+  transition: transform 0.3s ease;
+}
+
+.process-card__thumb-wrap {
+  position: relative;
+  width: 100%;
+  aspect-ratio: 16 / 9;
+  overflow: hidden;
+  background-color: var(--color-charcoal);
+  border: 1px solid rgba(196, 149, 106, 0.25);
+}
+
+.process-card__img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  display: block;
+  transition: transform 0.5s ease;
+}
+
+.process-card:hover .process-card__img {
+  transform: scale(1.05);
+}
+
+.process-card__thumb-overlay {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background-color: rgba(20, 20, 20, 0.3);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  transition: background-color 0.3s ease;
+}
+
+.process-card.is-active .process-card__thumb-overlay {
+  background-color: rgba(20, 20, 20, 0.12);
+}
+
+.process-card__play-icon {
+  width: 32px;
+  height: 32px;
+  border-radius: 50%;
+  border: 1px solid rgba(255, 255, 255, 0.8);
+  background-color: rgba(0, 0, 0, 0.4);
+  color: var(--color-white);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding-left: 2px;
+  transition: all 0.3s ease;
+}
+
+.process-card:hover .process-card__play-icon,
+.process-card.is-active .process-card__play-icon {
+  background-color: var(--color-bronze);
+  border-color: var(--color-bronze);
+}
+
+.process-card__info {
+  display: flex;
+  align-items: baseline;
+  gap: 10px;
+  margin-top: 12px;
+}
+
+.process-card__num {
+  font-family: var(--font-display);
+  font-size: 1.25rem;
+  font-weight: 600;
+  color: var(--color-bronze-dark);
+}
+
+.process-card__title {
+  font-family: var(--font-sans);
+  font-size: 11.5px;
+  font-weight: 700;
+  letter-spacing: 0.1em;
+  color: var(--color-text-dark);
+  text-transform: uppercase;
+}
+
+.process-card__active-line {
+  width: 32px;
+  height: 1.5px;
+  background-color: var(--color-bronze);
+  margin-top: 6px;
+  transition: opacity 0.3s ease;
+}
+
+.process-card:not(.is-active) .process-card__active-line {
+  opacity: 0;
+}

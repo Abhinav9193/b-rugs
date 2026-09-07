@@ -1,0 +1,167 @@
+/* ============================================================
+   BUNAAI RUGS — UI COMPONENTS STYLES
+   ============================================================ */
+
+/* --- Button --- */
+.btn {
+  display: inline-flex;
+  align-items: center;
+  gap: 12px;
+  font-family: var(--font-sans);
+  font-size: var(--size-btn);
+  font-weight: var(--weight-medium);
+  letter-spacing: var(--tracking-btn);
+  text-transform: uppercase;
+  cursor: pointer;
+  transition: all var(--transition-base);
+  white-space: nowrap;
+}
+
+.btn--primary {
+  background-color: var(--color-bronze);
+  color: var(--color-white);
+  padding: 16px 32px;
+  border: none;
+}
+
+.btn--primary:hover {
+  background-color: var(--color-bronze-dark);
+}
+
+.btn--outline {
+  background: transparent;
+  color: var(--color-text-dark);
+  padding: 12px 24px;
+  border: var(--border-thin) solid var(--color-text-dark);
+}
+
+.btn--outline:hover {
+  background-color: var(--color-text-dark);
+  color: var(--color-white);
+}
+
+.btn--outline-light {
+  background: transparent;
+  color: var(--color-text-light);
+  padding: 12px 24px;
+  border: var(--border-thin) solid var(--color-text-light);
+}
+
+.btn--outline-light:hover {
+  background-color: var(--color-text-light);
+  color: var(--color-text-dark);
+}
+
+.btn--ghost {
+  background: transparent;
+  color: var(--color-text-dark);
+  padding: 8px 0;
+  border: none;
+}
+
+.btn--ghost:hover {
+  color: var(--color-bronze);
+}
+
+.btn__arrow {
+  font-size: 1.1em;
+  transition: transform var(--transition-base);
+}
+
+.btn:hover .btn__arrow {
+  transform: translateX(4px);
+}
+
+.btn:disabled {
+  opacity: 0.5;
+  cursor: not-allowed;
+}
+
+/* --- Form Field (Spacious & Refined matching reference) --- */
+.form-field {
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+  width: 100%;
+}
+
+.form-field__label {
+  font-family: var(--font-sans);
+  font-size: 11px;
+  font-weight: 600;
+  letter-spacing: 0.14em;
+  text-transform: uppercase;
+  color: var(--color-text-dark);
+}
+
+.form-field__required {
+  color: var(--color-bronze);
+  margin-left: 2px;
+}
+
+.form-field__input,
+.form-field__select,
+.form-field__textarea {
+  width: 100%;
+  padding: 14px 18px;
+  font-family: var(--font-sans);
+  font-size: 14.5px;
+  color: var(--color-text-dark);
+  background-color: var(--color-white);
+  border: 1px solid var(--color-border);
+  border-radius: 2px;
+  transition: border-color var(--transition-base), box-shadow var(--transition-base);
+}
+
+.form-field__input::placeholder,
+.form-field__textarea::placeholder {
+  color: #8E8E8E;
+  font-size: 14px;
+}
+
+.form-field__input:focus,
+.form-field__select:focus,
+.form-field__textarea:focus {
+  border-color: var(--color-bronze);
+  outline: none;
+  box-shadow: 0 0 0 1px var(--color-bronze);
+}
+
+.form-field__select-wrapper {
+  position: relative;
+  width: 100%;
+}
+
+.form-field__select {
+  appearance: none;
+  padding-right: 44px;
+  cursor: pointer;
+}
+
+.form-field__select-icon {
+  position: absolute;
+  right: 18px;
+  top: 50%;
+  transform: translateY(-50%);
+  pointer-events: none;
+  color: var(--color-text-muted);
+}
+
+.form-field__textarea {
+  resize: vertical;
+  min-height: 140px;
+  line-height: 1.6;
+}
+
+.form-field__error {
+  font-size: 11.5px;
+  color: #C0392B;
+  font-weight: 500;
+  margin-top: 2px;
+}
+
+.form-field--error .form-field__input,
+.form-field--error .form-field__select,
+.form-field--error .form-field__textarea {
+  border-color: #C0392B;
+}
