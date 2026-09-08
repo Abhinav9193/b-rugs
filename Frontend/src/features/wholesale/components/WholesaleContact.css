@@ -36,7 +36,7 @@
   font-size: var(--size-motif);
   font-weight: 500;
   letter-spacing: var(--tracking-motif);
-  color: #7A7A7A;
+  color: #7a7a7a;
   text-transform: uppercase;
 }
 
@@ -86,7 +86,7 @@
   font-size: 16px;
   font-weight: 500;
   line-height: 1.68;
-  color: #1A1A1A;
+  color: #1a1a1a;
   margin-bottom: 28px;
 }
 
@@ -158,7 +158,7 @@
 
 .wholesale-submit-btn {
   width: 100%;
-  background-color: #8C5828;
+  background-color: #8c5828;
   color: var(--color-white);
   border: none;
   padding: 18px 28px;
@@ -177,15 +177,15 @@
 }
 
 .wholesale-submit-btn:hover {
-  background-color: #73451D;
+  background-color: #73451d;
 }
 
 .wholesale-form__general-error {
   font-family: var(--font-sans);
   font-size: 13.5px;
-  color: #C0392B;
+  color: #c0392b;
   background-color: rgba(192, 57, 43, 0.08);
-  border-left: 3px solid #C0392B;
+  border-left: 3px solid #c0392b;
   padding: 10px 14px;
   margin-top: 14px;
 }
@@ -206,7 +206,7 @@
 
 /* Success State */
 .wholesale-success-box {
-  background-color: #FFFFFF;
+  background-color: #ffffff;
   border: 1px solid var(--color-border);
   padding: 60px 48px;
   text-align: center;

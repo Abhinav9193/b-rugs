@@ -1,19 +1,15 @@
-import React from 'react';
-import './ProcessVideoCard.css';
+import React from "react";
+import "./ProcessVideoCard.css";
 
 export default function ProcessVideoCard({ item, isActive, onClick }) {
   return (
     <button
-      className={`process-card ${isActive ? 'is-active' : ''}`}
+      className={`process-card ${isActive ? "is-active" : ""}`}
       onClick={onClick}
       aria-label={`Select process step ${item.step}: ${item.title}`}
     >
       <div className="process-card__thumb-wrap">
-        <img
-          src={item.poster}
-          alt={item.title}
-          className="process-card__img"
-        />
+        <img src={item.poster} alt={item.title} className="process-card__img" />
         <div className="process-card__thumb-overlay">
           <div className="process-card__play-icon">
             <svg width="12" height="12" viewBox="0 0 24 24" fill="currentColor">

@@ -1,9 +1,9 @@
-import React, { useState, useEffect, useRef, useCallback } from 'react';
-import { motion, AnimatePresence } from 'motion/react';
-import { processVideos, MANUFACTURING_PAGE_COPY } from '../data/processVideos';
-import ProcessVideoCarousel from './ProcessVideoCarousel';
-import ProcessVideoModal from './ProcessVideoModal';
-import './ManufacturingProcess.css';
+import React, { useState, useEffect, useRef, useCallback } from "react";
+import { motion, AnimatePresence } from "motion/react";
+import { processVideos, MANUFACTURING_PAGE_COPY } from "../data/processVideos";
+import ProcessVideoCarousel from "./ProcessVideoCarousel";
+import ProcessVideoModal from "./ProcessVideoModal";
+import "./ManufacturingProcess.css";
 
 const STEP_DURATION = 6500;
 
@@ -18,7 +18,8 @@ export default function ManufacturingProcess() {
   const startTimeRef = useRef(0);
   const animationFrameRef = useRef(null);
 
-  const prevIndex = (activeIndex > 0 ? activeIndex - 1 : processVideos.length - 1);
+  const prevIndex =
+    activeIndex > 0 ? activeIndex - 1 : processVideos.length - 1;
   const nextIndex = (activeIndex + 1) % processVideos.length;
 
   const prevStep = useCallback(() => {
@@ -64,7 +65,8 @@ export default function ManufacturingProcess() {
     animationFrameRef.current = requestAnimationFrame(tick);
 
     return () => {
-      if (animationFrameRef.current) cancelAnimationFrame(animationFrameRef.current);
+      if (animationFrameRef.current)
+        cancelAnimationFrame(animationFrameRef.current);
     };
   }, [activeIndex, isPlaying, nextStep]);
 
@@ -84,18 +86,18 @@ export default function ManufacturingProcess() {
   const nextItem = processVideos[nextIndex];
 
   return (
-    <section 
-      id="manufacturing" 
-      ref={sectionRef} 
-      className="mfg-section"
-    >
+    <section id="manufacturing" ref={sectionRef} className="mfg-section">
       <div className="container">
         {/* Header Block */}
         <div className="mfg-header">
           <div className="mfg-header__left">
-            <span className="section-label">{MANUFACTURING_PAGE_COPY.eyebrow}</span>
+            <span className="section-label">
+              {MANUFACTURING_PAGE_COPY.eyebrow}
+            </span>
             <div className="mfg-header__label-line" />
-            <h2 className="mfg-header__title">{MANUFACTURING_PAGE_COPY.headline}</h2>
+            <h2 className="mfg-header__title">
+              {MANUFACTURING_PAGE_COPY.headline}
+            </h2>
             <p className="mfg-header__subtitle">
               {MANUFACTURING_PAGE_COPY.intro}
             </p>
@@ -115,7 +117,14 @@ export default function ManufacturingProcess() {
               }}
               aria-label="Previous step"
             >
-              <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.5">
+              <svg
+                width="18"
+                height="18"
+                viewBox="0 0 24 24"
+                fill="none"
+                stroke="currentColor"
+                strokeWidth="1.5"
+              >
                 <path d="M19 12H5M12 19l-7-7 7-7" />
               </svg>
             </button>
@@ -170,18 +179,29 @@ export default function ManufacturingProcess() {
 
               {/* Central Play/Pause button (reveals on hover or when paused) */}
               <button
-                className={`mfg-center-play-btn ${!isPlaying ? 'is-paused' : ''}`}
+                className={`mfg-center-play-btn ${!isPlaying ? "is-paused" : ""}`}
                 onClick={() => setIsPlaying(!isPlaying)}
-                aria-label={isPlaying ? 'Pause video' : 'Play video'}
+                aria-label={isPlaying ? "Pause video" : "Play video"}
               >
                 <div className="mfg-center-play-circle">
                   {isPlaying ? (
-                    <svg width="22" height="22" viewBox="0 0 24 24" fill="currentColor">
+                    <svg
+                      width="22"
+                      height="22"
+                      viewBox="0 0 24 24"
+                      fill="currentColor"
+                    >
                       <rect x="6" y="4" width="4" height="16" rx="1" />
                       <rect x="14" y="4" width="4" height="16" rx="1" />
                     </svg>
                   ) : (
-                    <svg width="24" height="24" viewBox="0 0 24 24" fill="currentColor" style={{ marginLeft: '4px' }}>
+                    <svg
+                      width="24"
+                      height="24"
+                      viewBox="0 0 24 24"
+                      fill="currentColor"
+                      style={{ marginLeft: "4px" }}
+                    >
                       <polygon points="5 3 19 12 5 21 5 3" />
                     </svg>
                   )}
@@ -201,7 +221,14 @@ export default function ManufacturingProcess() {
               }}
               aria-label="Next step"
             >
-              <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.5">
+              <svg
+                width="18"
+                height="18"
+                viewBox="0 0 24 24"
+                fill="none"
+                stroke="currentColor"
+                strokeWidth="1.5"
+              >
                 <path d="M5 12h14M12 5l7 7-7 7" />
               </svg>
             </button>
@@ -216,7 +243,12 @@ export default function ManufacturingProcess() {
                 <div
                   className="mfg-bar-segment-fill"
                   style={{
-                    width: idx === activeIndex ? `${progress}%` : idx < activeIndex ? '100%' : '0%',
+                    width:
+                      idx === activeIndex
+                        ? `${progress}%`
+                        : idx < activeIndex
+                          ? "100%"
+                          : "0%",
                   }}
                 />
               </div>
@@ -229,17 +261,27 @@ export default function ManufacturingProcess() {
           >
             <span className="mfg-pause-icon-circle">
               {isPlaying ? (
-                <svg width="10" height="10" viewBox="0 0 24 24" fill="currentColor">
+                <svg
+                  width="10"
+                  height="10"
+                  viewBox="0 0 24 24"
+                  fill="currentColor"
+                >
                   <rect x="6" y="4" width="4" height="16" />
                   <rect x="14" y="4" width="4" height="16" />
                 </svg>
               ) : (
-                <svg width="10" height="10" viewBox="0 0 24 24" fill="currentColor">
+                <svg
+                  width="10"
+                  height="10"
+                  viewBox="0 0 24 24"
+                  fill="currentColor"
+                >
                   <polygon points="5 3 19 12 5 21 5 3" />
                 </svg>
               )}
             </span>
-            <span>{isPlaying ? 'PAUSE' : 'PLAY'}</span>
+            <span>{isPlaying ? "PAUSE" : "PLAY"}</span>
           </button>
         </div>
 
@@ -263,16 +305,43 @@ export default function ManufacturingProcess() {
 
       {/* Floating Right-Side Vertical Badge */}
       <div className="mfg-floating-badge" aria-hidden="true">
-        <span className="mfg-v-text">{MANUFACTURING_PAGE_COPY.verticalMotif.line1}</span>
+        <span className="mfg-v-text">
+          {MANUFACTURING_PAGE_COPY.verticalMotif.line1}
+        </span>
         <div className="mfg-v-line" />
         <div className="mfg-diamond-icon">
-          <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.2">
-            <rect x="3" y="3" width="18" height="18" transform="rotate(45 12 12)" stroke="currentColor" fill="none" />
-            <rect x="7" y="7" width="10" height="10" transform="rotate(45 12 12)" stroke="currentColor" fill="none" />
+          <svg
+            width="22"
+            height="22"
+            viewBox="0 0 24 24"
+            fill="none"
+            stroke="currentColor"
+            strokeWidth="1.2"
+          >
+            <rect
+              x="3"
+              y="3"
+              width="18"
+              height="18"
+              transform="rotate(45 12 12)"
+              stroke="currentColor"
+              fill="none"
+            />
+            <rect
+              x="7"
+              y="7"
+              width="10"
+              height="10"
+              transform="rotate(45 12 12)"
+              stroke="currentColor"
+              fill="none"
+            />
           </svg>
         </div>
         <div className="mfg-v-line" />
-        <span className="mfg-v-text">{MANUFACTURING_PAGE_COPY.verticalMotif.line2}</span>
+        <span className="mfg-v-text">
+          {MANUFACTURING_PAGE_COPY.verticalMotif.line2}
+        </span>
       </div>
     </section>
   );

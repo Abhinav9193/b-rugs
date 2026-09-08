@@ -5,7 +5,11 @@
   flex: 1;
   min-height: 0;
   display: grid;
-  grid-template-columns: clamp(220px, 22vw, 320px) clamp(70px, 6vw, 95px) 1px minmax(240px, 360px) 1fr;
+  grid-template-columns: clamp(220px, 22vw, 320px) clamp(
+      70px,
+      6vw,
+      95px
+    ) 1px minmax(240px, 360px) 1fr;
   align-items: center;
   gap: clamp(20px, 2.5vw, 44px);
   box-sizing: border-box;
@@ -55,7 +59,7 @@
   font-family: var(--font-display);
   font-size: clamp(2.4rem, 2.8vw, 3.2rem);
   font-weight: 400;
-  color: #B8860B;
+  color: #b8860b;
   line-height: 1;
 }
 
@@ -108,7 +112,7 @@
   font-size: clamp(14.5px, 1.1vw, 16.5px);
   font-weight: 500;
   line-height: 1.62;
-  color: #1A1A1A;
+  color: #1a1a1a;
   max-width: 560px;
 }
 

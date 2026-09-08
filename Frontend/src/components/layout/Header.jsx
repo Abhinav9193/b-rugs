@@ -1,9 +1,9 @@
-import { useState, useCallback, useEffect } from 'react';
-import { motion, AnimatePresence } from 'motion/react';
-import { useScrollPosition } from '../../hooks/useScrollPosition';
-import { NAV_ITEMS } from '../../lib/constants';
-import { scrollToSection } from '../../lib/utils';
-import './Header.css';
+import { useState, useCallback, useEffect } from "react";
+import { motion, AnimatePresence } from "motion/react";
+import { useScrollPosition } from "../../hooks/useScrollPosition";
+import { NAV_ITEMS } from "../../lib/constants";
+import { scrollToSection } from "../../lib/utils";
+import "./Header.css";
 
 export default function Header() {
   const { isScrolled } = useScrollPosition();
@@ -16,19 +16,19 @@ export default function Header() {
         setIsMobileMenuOpen(false);
       }
     };
-    window.addEventListener('resize', handleResize);
-    return () => window.removeEventListener('resize', handleResize);
+    window.addEventListener("resize", handleResize);
+    return () => window.removeEventListener("resize", handleResize);
   }, []);
 
   // Lock body scroll when mobile menu is open
   useEffect(() => {
     if (isMobileMenuOpen) {
-      document.body.style.overflow = 'hidden';
+      document.body.style.overflow = "hidden";
     } else {
-      document.body.style.overflow = '';
+      document.body.style.overflow = "";
     }
     return () => {
-      document.body.style.overflow = '';
+      document.body.style.overflow = "";
     };
   }, [isMobileMenuOpen]);
 
@@ -40,12 +40,12 @@ export default function Header() {
 
   const handleWholesaleClick = useCallback((e) => {
     e.preventDefault();
-    scrollToSection('wholesale');
+    scrollToSection("wholesale");
     setIsMobileMenuOpen(false);
   }, []);
 
   return (
-    <header className={`header ${isScrolled ? 'header--scrolled' : ''}`}>
+    <header className={`header ${isScrolled ? "header--scrolled" : ""}`}>
       <div className="header__inner">
         {/* Official Brand Logo */}
         <a href="/" className="header__logo" aria-label="Bunaai Rugs - Home">
@@ -80,14 +80,16 @@ export default function Header() {
           onClick={handleWholesaleClick}
         >
           <span>WHOLESALE ENQUIRY</span>
-          <span className="header__cta-arrow" aria-hidden="true">→</span>
+          <span className="header__cta-arrow" aria-hidden="true">
+            →
+          </span>
         </a>
 
         {/* Mobile Menu Button */}
         <button
-          className={`header__menu-btn ${isMobileMenuOpen ? 'header__menu-btn--open' : ''}`}
+          className={`header__menu-btn ${isMobileMenuOpen ? "header__menu-btn--open" : ""}`}
           onClick={() => setIsMobileMenuOpen(!isMobileMenuOpen)}
-          aria-label={isMobileMenuOpen ? 'Close menu' : 'Open menu'}
+          aria-label={isMobileMenuOpen ? "Close menu" : "Open menu"}
           aria-expanded={isMobileMenuOpen}
         >
           <span className="header__menu-line"></span>
@@ -104,7 +106,7 @@ export default function Header() {
             initial={{ opacity: 0, y: -20 }}
             animate={{ opacity: 1, y: 0 }}
             exit={{ opacity: 0, y: -20 }}
-            transition={{ duration: 0.3, ease: 'easeOut' }}
+            transition={{ duration: 0.3, ease: "easeOut" }}
           >
             <nav aria-label="Mobile navigation">
               <ul className="header__mobile-list">

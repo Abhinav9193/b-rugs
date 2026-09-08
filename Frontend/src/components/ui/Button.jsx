@@ -1,6 +1,15 @@
-import './ui.css';
+import "./ui.css";
 
-export function Button({ children, variant = 'primary', type = 'button', onClick, disabled, className = '', ariaLabel, ...props }) {
+export function Button({
+  children,
+  variant = "primary",
+  type = "button",
+  onClick,
+  disabled,
+  className = "",
+  ariaLabel,
+  ...props
+}) {
   return (
     <button
       type={type}
@@ -11,7 +20,9 @@ export function Button({ children, variant = 'primary', type = 'button', onClick
       {...props}
     >
       <span className="btn__text">{children}</span>
-      <span className="btn__arrow" aria-hidden="true">→</span>
+      <span className="btn__arrow" aria-hidden="true">
+        →
+      </span>
     </button>
   );
 }

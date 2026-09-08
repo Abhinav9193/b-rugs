@@ -8,26 +8,26 @@
 
 :root {
   /* --- Colors --- */
-  --color-charcoal: #1A1A1A;
-  --color-charcoal-light: #2A2A2A;
-  --color-ivory: #F7F3EB;
-  --color-ivory-dark: #EDE6D8;
-  --color-gold: #B8860B;
-  --color-bronze: #C4956A;
-  --color-bronze-light: #D4A574;
-  --color-bronze-dark: #8C5828;
-  --color-white: #FFFFFF;
+  --color-charcoal: #1a1a1a;
+  --color-charcoal-light: #2a2a2a;
+  --color-ivory: #f7f3eb;
+  --color-ivory-dark: #ede6d8;
+  --color-gold: #b8860b;
+  --color-bronze: #c4956a;
+  --color-bronze-light: #d4a574;
+  --color-bronze-dark: #8c5828;
+  --color-white: #ffffff;
   --color-black: #000000;
-  --color-text-dark: #1A1A1A;
-  --color-text-light: #F7F3EB;
-  --color-text-muted: #6B6B6B;
+  --color-text-dark: #1a1a1a;
+  --color-text-light: #f7f3eb;
+  --color-text-muted: #6b6b6b;
   --color-border: rgba(196, 149, 106, 0.35);
   --color-border-dark: rgba(196, 149, 106, 0.2);
 
   /* --- Typography Font Families --- */
-  --font-display: 'Cormorant Garamond', Georgia, serif;
-  --font-serif: 'Cormorant Garamond', Georgia, serif;
-  --font-sans: 'Montserrat', sans-serif;
+  --font-display: "Cormorant Garamond", Georgia, serif;
+  --font-serif: "Cormorant Garamond", Georgia, serif;
+  --font-sans: "Montserrat", sans-serif;
 
   /* Typography Font Sizes */
   --size-hero-h1: clamp(62px, 5.2vw, 92px);

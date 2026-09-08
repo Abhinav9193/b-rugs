@@ -20,7 +20,12 @@
 .testimonials-glow-orb--left {
   width: 420px;
   height: 420px;
-  background: radial-gradient(circle, #C4956A 0%, rgba(196, 149, 106, 0.2) 60%, transparent 80%);
+  background: radial-gradient(
+    circle,
+    #c4956a 0%,
+    rgba(196, 149, 106, 0.2) 60%,
+    transparent 80%
+  );
   top: -50px;
   left: -80px;
 }
@@ -28,7 +33,12 @@
 .testimonials-glow-orb--right {
   width: 450px;
   height: 450px;
-  background: radial-gradient(circle, #8C6A48 0%, rgba(140, 106, 72, 0.15) 60%, transparent 80%);
+  background: radial-gradient(
+    circle,
+    #8c6a48 0%,
+    rgba(140, 106, 72, 0.15) 60%,
+    transparent 80%
+  );
   bottom: -60px;
   right: -80px;
 }
@@ -70,8 +80,15 @@
 }
 
 @keyframes testPulse {
-  0%, 100% { opacity: 1; transform: scale(1); }
-  50% { opacity: 0.4; transform: scale(0.8); }
+  0%,
+  100% {
+    opacity: 1;
+    transform: scale(1);
+  }
+  50% {
+    opacity: 0.4;
+    transform: scale(0.8);
+  }
 }
 
 .testimonials-live-text {
@@ -79,7 +96,7 @@
   font-size: 10.5px;
   font-weight: 600;
   letter-spacing: 0.16em;
-  color: #8C8984;
+  color: #8c8984;
   text-transform: uppercase;
 }
 
@@ -103,7 +120,7 @@
   font-family: var(--font-sans);
   font-size: clamp(14px, 1.1vw, 16px);
   font-weight: 500;
-  color: #1A1A1A;
+  color: #1a1a1a;
   line-height: 1.6;
   margin: 0;
   max-width: 480px;
@@ -135,12 +152,20 @@
 
 .testimonials-edge-fade--left {
   left: 0;
-  background: linear-gradient(to right, var(--color-ivory) 20%, rgba(247, 243, 235, 0) 100%);
+  background: linear-gradient(
+    to right,
+    var(--color-ivory) 20%,
+    rgba(247, 243, 235, 0) 100%
+  );
 }
 
 .testimonials-edge-fade--right {
   right: 0;
-  background: linear-gradient(to left, var(--color-ivory) 20%, rgba(247, 243, 235, 0) 100%);
+  background: linear-gradient(
+    to left,
+    var(--color-ivory) 20%,
+    rgba(247, 243, 235, 0) 100%
+  );
 }
 
 /* Moving Train Track */
@@ -172,7 +197,7 @@
   width: clamp(200px, 16vw, 240px);
   min-height: clamp(240px, 22vw, 300px);
   flex-shrink: 0;
-  background: #FAF8F5;
+  background: #faf8f5;
   border: 1px solid rgba(196, 149, 106, 0.22);
   border-radius: 10px;
   display: flex;
@@ -191,7 +216,9 @@
 .partner-card:hover {
   transform: translateY(-5px);
   border-color: var(--color-bronze);
-  box-shadow: 0 16px 36px -8px rgba(196, 149, 106, 0.14), 0 0 0 1px rgba(255, 255, 255, 0.7) inset;
+  box-shadow:
+    0 16px 36px -8px rgba(196, 149, 106, 0.14),
+    0 0 0 1px rgba(255, 255, 255, 0.7) inset;
 }
 
 /* Top accent bar */
@@ -202,10 +229,17 @@
   transform: translateX(-50%);
   width: 50%;
   height: 3px;
-  background: linear-gradient(90deg, transparent, var(--color-bronze), transparent);
+  background: linear-gradient(
+    90deg,
+    transparent,
+    var(--color-bronze),
+    transparent
+  );
   border-radius: 0 0 3px 3px;
   opacity: 0.5;
-  transition: opacity 0.35s ease, width 0.35s ease;
+  transition:
+    opacity 0.35s ease,
+    width 0.35s ease;
 }
 
 .partner-card:hover .partner-card__accent-bar {
@@ -231,7 +265,7 @@
 }
 
 .partner-card:hover .partner-card__brand-name {
-  color: #1A1A1A;
+  color: #1a1a1a;
 }
 
 /* Typography Variations for Each Brand */
@@ -322,7 +356,9 @@
   background-color: var(--color-bronze);
   opacity: 0.45;
   margin: 16px 0 14px 0;
-  transition: width 0.3s ease, opacity 0.3s ease;
+  transition:
+    width 0.3s ease,
+    opacity 0.3s ease;
 }
 
 .partner-card:hover .partner-card__divider {
@@ -362,7 +398,7 @@
   font-size: var(--size-motif);
   font-weight: 500;
   letter-spacing: var(--tracking-motif);
-  color: #7A7A7A;
+  color: #7a7a7a;
   text-transform: uppercase;
 }
 

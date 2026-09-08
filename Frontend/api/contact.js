@@ -1,50 +1,50 @@
-import { Resend } from 'resend';
-import logoData from './logo-b64.json' with { type: 'json' };
+import { Resend } from "resend";
+import logoData from "./logo-b64.json" with { type: "json" };
 
 // Simple email regex for validation
 const EMAIL_REGEX = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
 
 // Helper to get friendly labels for code values
 const REQUIREMENT_LABELS = {
-  wholesale: 'Wholesale Collection',
-  custom: 'Custom Rugs',
-  'private-label': 'Private Label',
-  hospitality: 'Hospitality / Contract',
-  retail: 'Retail',
-  other: 'Other',
+  wholesale: "Wholesale Collection",
+  custom: "Custom Rugs",
+  "private-label": "Private Label",
+  hospitality: "Hospitality / Contract",
+  retail: "Retail",
+  other: "Other",
 };
 
 const COUNTRY_LABELS = {
-  IN: 'India',
-  US: 'United States',
-  GB: 'United Kingdom',
-  DE: 'Germany',
-  FR: 'France',
-  AE: 'United Arab Emirates',
-  AU: 'Australia',
-  CA: 'Canada',
-  IT: 'Italy',
-  ES: 'Spain',
-  NL: 'Netherlands',
-  SA: 'Saudi Arabia',
-  JP: 'Japan',
-  SG: 'Singapore',
-  SE: 'Sweden',
-  CH: 'Switzerland',
-  BE: 'Belgium',
-  DK: 'Denmark',
-  NO: 'Norway',
-  NZ: 'New Zealand',
-  OTHER: 'Other',
+  IN: "India",
+  US: "United States",
+  GB: "United Kingdom",
+  DE: "Germany",
+  FR: "France",
+  AE: "United Arab Emirates",
+  AU: "Australia",
+  CA: "Canada",
+  IT: "Italy",
+  ES: "Spain",
+  NL: "Netherlands",
+  SA: "Saudi Arabia",
+  JP: "Japan",
+  SG: "Singapore",
+  SE: "Sweden",
+  CH: "Switzerland",
+  BE: "Belgium",
+  DK: "Denmark",
+  NO: "Norway",
+  NZ: "New Zealand",
+  OTHER: "Other",
 };
 
 export default async function handler(req, res) {
   // Only allow POST requests
-  if (req.method !== 'POST') {
-    res.setHeader('Allow', ['POST']);
+  if (req.method !== "POST") {
+    res.setHeader("Allow", ["POST"]);
     return res.status(405).json({
       success: false,
-      message: 'Method Not Allowed. Please send a POST request.',
+      message: "Method Not Allowed. Please send a POST request.",
     });
   }
 
@@ -62,19 +62,28 @@ export default async function handler(req, res) {
     } = req.body || {};
 
     // Trim and sanitize inputs
-    const trimmedName = typeof name === 'string' ? name.trim() : '';
-    const trimmedCompanyName = typeof companyName === 'string' ? companyName.trim() : '';
-    const trimmedBusinessEmail = typeof businessEmail === 'string' ? businessEmail.trim() : '';
-    const trimmedPhone = typeof phoneNumber === 'string' ? phoneNumber.trim() : '';
-    const trimmedCountryCode = typeof country === 'string' ? country.trim() : '';
-    const trimmedRequirementCode = typeof requirementType === 'string' ? requirementType.trim() : '';
-    const trimmedQuantity = typeof estimatedQuantity === 'string' ? estimatedQuantity.trim() : '';
-    const trimmedSize = typeof sizeSpecification === 'string' ? sizeSpecification.trim() : '';
-    const trimmedMessage = typeof message === 'string' ? message.trim() : '';
+    const trimmedName = typeof name === "string" ? name.trim() : "";
+    const trimmedCompanyName =
+      typeof companyName === "string" ? companyName.trim() : "";
+    const trimmedBusinessEmail =
+      typeof businessEmail === "string" ? businessEmail.trim() : "";
+    const trimmedPhone =
+      typeof phoneNumber === "string" ? phoneNumber.trim() : "";
+    const trimmedCountryCode =
+      typeof country === "string" ? country.trim() : "";
+    const trimmedRequirementCode =
+      typeof requirementType === "string" ? requirementType.trim() : "";
+    const trimmedQuantity =
+      typeof estimatedQuantity === "string" ? estimatedQuantity.trim() : "";
+    const trimmedSize =
+      typeof sizeSpecification === "string" ? sizeSpecification.trim() : "";
+    const trimmedMessage = typeof message === "string" ? message.trim() : "";
 
     // Human-readable labels
-    const displayCountry = COUNTRY_LABELS[trimmedCountryCode] || trimmedCountryCode;
-    const displayRequirement = REQUIREMENT_LABELS[trimmedRequirementCode] || trimmedRequirementCode;
+    const displayCountry =
+      COUNTRY_LABELS[trimmedCountryCode] || trimmedCountryCode;
+    const displayRequirement =
+      REQUIREMENT_LABELS[trimmedRequirementCode] || trimmedRequirementCode;
 
     // Validate required fields
     if (
@@ -88,7 +97,7 @@ export default async function handler(req, res) {
     ) {
       return res.status(400).json({
         success: false,
-        message: 'Please fill in all required fields.',
+        message: "Please fill in all required fields.",
       });
     }
 
@@ -96,27 +105,32 @@ export default async function handler(req, res) {
     if (!EMAIL_REGEX.test(trimmedBusinessEmail)) {
       return res.status(400).json({
         success: false,
-        message: 'Please provide a valid business email address.',
+        message: "Please provide a valid business email address.",
       });
     }
 
     const apiKey = process.env.RESEND_API_KEY;
-    const fromEmail = process.env.EMAIL_FROM || 'Bunaai Rugs <onboarding@resend.dev>';
+    const fromEmail =
+      process.env.EMAIL_FROM || "Bunaai Rugs <onboarding@resend.dev>";
     const toEmail = process.env.CONTACT_RECEIVER_EMAIL;
 
     if (!apiKey) {
-      console.error('[API /api/contact Error]: Missing RESEND_API_KEY in environment variables.');
+      console.error(
+        "[API /api/contact Error]: Missing RESEND_API_KEY in environment variables.",
+      );
       return res.status(500).json({
         success: false,
-        message: 'Unable to send your enquiry. Please try again.',
+        message: "Unable to send your enquiry. Please try again.",
       });
     }
 
     if (!toEmail) {
-      console.error('[API /api/contact Error]: Missing CONTACT_RECEIVER_EMAIL in environment variables.');
+      console.error(
+        "[API /api/contact Error]: Missing CONTACT_RECEIVER_EMAIL in environment variables.",
+      );
       return res.status(500).json({
         success: false,
-        message: 'Unable to send your enquiry. Please try again.',
+        message: "Unable to send your enquiry. Please try again.",
       });
     }
 
@@ -250,7 +264,7 @@ export default async function handler(req, res) {
                     Phone Number
                   </td>
                   <td style="padding: 13px 20px; border-bottom: 1px solid rgba(196, 149, 106, 0.2); font-family: 'Montserrat', sans-serif; font-size: 14px; color: #1A1A1A;">
-                    ${trimmedPhone ? `<a href="tel:${trimmedPhone.replace(/\s+/g, '')}" style="color: #1A1A1A; text-decoration: none;">${trimmedPhone}</a>` : '<span style="color: #999999;">Not provided</span>'}
+                    ${trimmedPhone ? `<a href="tel:${trimmedPhone.replace(/\s+/g, "")}" style="color: #1A1A1A; text-decoration: none;">${trimmedPhone}</a>` : '<span style="color: #999999;">Not provided</span>'}
                   </td>
                 </tr>
 
@@ -412,11 +426,11 @@ BUNAAI RUGS — NEW WHOLESALE ENQUIRY
 Client Name: ${trimmedName}
 Company Name: ${trimmedCompanyName}
 Business Email: ${trimmedBusinessEmail}
-Phone Number: ${trimmedPhone || 'Not provided'}
+Phone Number: ${trimmedPhone || "Not provided"}
 Country / Region: ${displayCountry}
 Requirement Type: ${displayRequirement}
 Estimated Quantity: ${trimmedQuantity} pieces
-Size / Specification: ${trimmedSize || 'Custom / To be discussed'}
+Size / Specification: ${trimmedSize || "Custom / To be discussed"}
 
 MESSAGE & REQUIREMENTS:
 -----------------------
@@ -438,31 +452,30 @@ Address: Village – Shivrampur, Post Saripur 221314, Umarha BO, Uttar Pradesh, 
       text: textContent,
       attachments: [
         {
-          filename: 'bunaai-official-logo.png',
+          filename: "bunaai-official-logo.png",
           content: logoData.data,
         },
       ],
     });
 
     if (data.error) {
-      console.error('[Resend Delivery Error]:', data.error);
+      console.error("[Resend Delivery Error]:", data.error);
       return res.status(500).json({
         success: false,
-        message: 'Unable to send your enquiry. Please try again.',
+        message: "Unable to send your enquiry. Please try again.",
       });
     }
 
     return res.status(200).json({
       success: true,
-      message: 'Thank you. Your wholesale enquiry has been sent successfully.',
+      message: "Thank you. Your wholesale enquiry has been sent successfully.",
       id: data.data?.id,
     });
   } catch (error) {
-    console.error('[Server Error /api/contact]:', error);
+    console.error("[Server Error /api/contact]:", error);
     return res.status(500).json({
       success: false,
-      message: 'Unable to send your enquiry. Please try again.',
+      message: "Unable to send your enquiry. Please try again.",
     });
   }
 }
-

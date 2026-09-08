@@ -1,8 +1,14 @@
-import React, { useRef, useEffect } from 'react';
-import { motion, AnimatePresence } from 'motion/react';
-import './HeritageVideo.css';
+import React, { useRef, useEffect } from "react";
+import { motion, AnimatePresence } from "motion/react";
+import "./HeritageVideo.css";
 
-export default function HeritageVideo({ currentItem, isPlaying, onTogglePlay, onProgressUpdate, onVideoEnded }) {
+export default function HeritageVideo({
+  currentItem,
+  isPlaying,
+  onTogglePlay,
+  onProgressUpdate,
+  onVideoEnded,
+}) {
   const videoRef = useRef(null);
 
   useEffect(() => {
@@ -17,7 +23,8 @@ export default function HeritageVideo({ currentItem, isPlaying, onTogglePlay, on
 
   const handleTimeUpdate = () => {
     if (videoRef.current && videoRef.current.duration) {
-      const prog = (videoRef.current.currentTime / videoRef.current.duration) * 100;
+      const prog =
+        (videoRef.current.currentTime / videoRef.current.duration) * 100;
       if (onProgressUpdate) onProgressUpdate(prog);
     }
   };
@@ -58,9 +65,11 @@ export default function HeritageVideo({ currentItem, isPlaying, onTogglePlay, on
 
       {/* Play/Pause Button Overlay (reveals on hover or when paused) */}
       <button
-        className={`heritage-video-play-btn ${!isPlaying ? 'is-paused' : ''}`}
+        className={`heritage-video-play-btn ${!isPlaying ? "is-paused" : ""}`}
         onClick={onTogglePlay}
-        aria-label={isPlaying ? 'Pause manufacturing video' : 'Play manufacturing video'}
+        aria-label={
+          isPlaying ? "Pause manufacturing video" : "Play manufacturing video"
+        }
       >
         <div className="heritage-video-play-circle">
           {isPlaying ? (
@@ -69,7 +78,13 @@ export default function HeritageVideo({ currentItem, isPlaying, onTogglePlay, on
               <rect x="14" y="4" width="4" height="16" rx="1" />
             </svg>
           ) : (
-            <svg width="22" height="22" viewBox="0 0 24 24" fill="currentColor" style={{ marginLeft: '3px' }}>
+            <svg
+              width="22"
+              height="22"
+              viewBox="0 0 24 24"
+              fill="currentColor"
+              style={{ marginLeft: "3px" }}
+            >
               <polygon points="5 3 19 12 5 21 5 3" />
             </svg>
           )}
@@ -81,7 +96,7 @@ export default function HeritageVideo({ currentItem, isPlaying, onTogglePlay, on
         <div className="heritage-video-tagline">
           <div className="heritage-video-tagline-bar" />
           <p className="heritage-video-tagline-text">
-            {currentItem.tagline.split('\n').map((line, i) => (
+            {currentItem.tagline.split("\n").map((line, i) => (
               <span key={i}>
                 {line}
                 <br />

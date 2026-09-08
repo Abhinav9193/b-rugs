@@ -44,7 +44,7 @@
   font-size: 16px;
   font-weight: 500;
   line-height: 1.65;
-  color: #1A1A1A;
+  color: #1a1a1a;
   max-width: 700px;
 }
 
@@ -82,7 +82,7 @@
   width: 100%;
   height: 100%;
   object-fit: contain;
-  background-color: #1A1A1A;
+  background-color: #1a1a1a;
 }
 
 /* Left Step Info */
@@ -141,7 +141,7 @@
   font-size: 14.5px;
   font-weight: 500;
   line-height: 1.65;
-  color: #1A1A1A;
+  color: #1a1a1a;
 }
 
 /* Center Video Box — Large Cinematic Proportions */
@@ -187,7 +187,9 @@
   z-index: 10;
   opacity: 0;
   pointer-events: none;
-  transition: opacity 0.3s ease, transform 0.3s ease;
+  transition:
+    opacity 0.3s ease,
+    transform 0.3s ease;
 }
 
 /* Show button on video box hover or when paused */
@@ -302,7 +304,7 @@
   width: 100%;
   height: 100%;
   object-fit: contain;
-  background-color: #1A1A1A;
+  background-color: #1a1a1a;
 }
 
 /* Segment Progress & Pause Bar below center video */
@@ -337,7 +339,7 @@
   top: 0;
   left: 0;
   height: 100%;
-  background-color: #8C5828;
+  background-color: #8c5828;
   will-change: width;
 }
 
@@ -387,7 +389,7 @@
   font-size: var(--size-motif);
   font-weight: 500;
   letter-spacing: var(--tracking-motif);
-  color: #7A7A7A;
+  color: #7a7a7a;
   text-transform: uppercase;
 }
 

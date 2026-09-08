@@ -1,1 +1,1 @@
-export { default as WholesaleContact } from './components/WholesaleContact';
+export { default as WholesaleContact } from "./components/WholesaleContact";

@@ -1,1 +1,1 @@
-export { default as Sustainability } from './components/Sustainability';
+export { default as Sustainability } from "./components/Sustainability";

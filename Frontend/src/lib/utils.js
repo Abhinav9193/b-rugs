@@ -4,13 +4,13 @@
 export function scrollToSection(sectionId) {
   const element = document.getElementById(sectionId);
   if (element) {
-    const headerHeight = document.querySelector('.header')?.offsetHeight || 76;
+    const headerHeight = document.querySelector(".header")?.offsetHeight || 76;
     const elementPosition = element.getBoundingClientRect().top;
     const offsetPosition = elementPosition + window.scrollY - headerHeight;
 
     window.scrollTo({
       top: offsetPosition,
-      behavior: 'smooth',
+      behavior: "smooth",
     });
   }
 }
@@ -19,7 +19,7 @@ export function scrollToSection(sectionId) {
  * Format a number with leading zero
  */
 export function padNumber(num) {
-  return String(num).padStart(2, '0');
+  return String(num).padStart(2, "0");
 }
 
 /**
@@ -42,5 +42,5 @@ export function isValidEmail(email) {
  * Check for reduced motion preference
  */
 export function prefersReducedMotion() {
-  return window.matchMedia('(prefers-reduced-motion: reduce)').matches;
+  return window.matchMedia("(prefers-reduced-motion: reduce)").matches;
 }

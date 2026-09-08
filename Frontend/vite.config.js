@@ -1,23 +1,23 @@
-import { defineConfig } from 'vite';
-import react from '@vitejs/plugin-react';
-import dotenv from 'dotenv';
-import path from 'path';
+import { defineConfig } from "vite";
+import react from "@vitejs/plugin-react";
+import dotenv from "dotenv";
+import path from "path";
 
 // Load .env.local for local serverless development
-dotenv.config({ path: path.resolve(process.cwd(), '.env.local') });
-dotenv.config({ path: path.resolve(process.cwd(), '.env') });
+dotenv.config({ path: path.resolve(process.cwd(), ".env.local") });
+dotenv.config({ path: path.resolve(process.cwd(), ".env") });
 
 function contactApiPlugin() {
   return {
-    name: 'contact-api-dev-server',
+    name: "contact-api-dev-server",
     configureServer(server) {
       server.middlewares.use(async (req, res, next) => {
-        if (req.url === '/api/contact' && req.method === 'POST') {
-          let bodyStr = '';
-          req.on('data', (chunk) => {
+        if (req.url === "/api/contact" && req.method === "POST") {
+          let bodyStr = "";
+          req.on("data", (chunk) => {
             bodyStr += chunk;
           });
-          req.on('end', async () => {
+          req.on("end", async () => {
             try {
               let parsedBody = {};
               if (bodyStr) {
@@ -37,18 +37,26 @@ function contactApiPlugin() {
                   return this;
                 },
                 json(data) {
-                  res.setHeader('Content-Type', 'application/json');
+                  res.setHeader("Content-Type", "application/json");
                   res.end(JSON.stringify(data));
                 },
               };
 
-              const { default: handler } = await import('./api/contact.js');
+              const { default: handler } = await import("./api/contact.js");
               await handler(mockReq, mockRes);
             } catch (err) {
-              console.error('Error handling /api/contact in dev middleware:', err);
+              console.error(
+                "Error handling /api/contact in dev middleware:",
+                err,
+              );
               res.statusCode = 500;
-              res.setHeader('Content-Type', 'application/json');
-              res.end(JSON.stringify({ success: false, message: 'Internal Server Error' }));
+              res.setHeader("Content-Type", "application/json");
+              res.end(
+                JSON.stringify({
+                  success: false,
+                  message: "Internal Server Error",
+                }),
+              );
             }
           });
         } else {

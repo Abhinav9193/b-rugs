@@ -1,1 +1,1 @@
-export { default as ManufacturingProcess } from './components/ManufacturingProcess';
+export { default as ManufacturingProcess } from "./components/ManufacturingProcess";
