@@ -68,7 +68,7 @@ export const PARTNERS_PAGE_COPY = {
     "Collaborating with leading global brands, retailers, and design houses to bring fine craftsmanship to the world.",
   badge: "TRUSTED TRADE & RETAIL NETWORK",
   verticalMotif: {
-    line1: "GLOBAL PARTNERS",
-    line2: "TRADE NETWORK",
+    line1: "TRADITION",
+    line2: "IN MOTION",
   },
 };

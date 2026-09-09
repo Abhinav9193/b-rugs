@@ -5,11 +5,9 @@
   flex: 1;
   min-height: 0;
   display: grid;
-  grid-template-columns: clamp(220px, 22vw, 320px) clamp(
-      70px,
-      6vw,
-      95px
-    ) 1px minmax(240px, 360px) 1fr;
+  grid-template-columns:
+    clamp(220px, 22vw, 320px) clamp(70px, 6vw, 95px)
+    1px minmax(240px, 360px) 1fr;
   align-items: center;
   gap: clamp(20px, 2.5vw, 44px);
   box-sizing: border-box;
