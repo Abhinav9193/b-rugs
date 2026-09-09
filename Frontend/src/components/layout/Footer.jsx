@@ -87,7 +87,7 @@ export default function Footer() {
                     HAND-KNOTTED ATELIER
                   </span>
                   <span className="footer__craft-sub">
-                    Century-old loom artistry
+                    Generations of craftsmanship
                   </span>
                 </div>
                 <div className="footer__craft-motif" aria-hidden="true">
