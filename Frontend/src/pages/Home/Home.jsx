@@ -2,7 +2,6 @@ import React from "react";
 import { HeritageHero } from "../../features/heritage";
 import { ManufacturingProcess } from "../../features/manufacturing";
 import { Sustainability } from "../../features/sustainability";
-import { Testimonials } from "../../features/testimonials";
 import { WholesaleContact } from "../../features/wholesale";
 
 export default function Home() {
@@ -17,8 +16,8 @@ export default function Home() {
       {/* 03. SUSTAINABILITY */}
       <Sustainability />
 
-      {/* 04. CLIENT TESTIMONIALS / PERSPECTIVES */}
-      <Testimonials />
+      {/* 04. CLIENT TESTIMONIALS / PERSPECTIVES
+      <Testimonials /> */}
 
       {/* 05. WHOLESALE / CONTACT */}
       <WholesaleContact />
